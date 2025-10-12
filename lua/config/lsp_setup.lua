@@ -22,7 +22,11 @@ lsp_setup.on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format()
+				if vim.bo.filetype == 'typescriptreact' then
+					vim.cmd("Neoformat prettier")
+				else
+					vim.lsp.buf.format() 
+				end
 			end,
 		})
 	end
