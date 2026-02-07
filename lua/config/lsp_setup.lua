@@ -1,7 +1,6 @@
 local lsp_setup = {}
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-lsp_setup.on_attach = function(client, bufnr)
+lsp_setup.on_attach = function(_, bufnr)
 	local opts = { buffer = bufnr, noremap = true, silent = true }
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -16,20 +15,12 @@ lsp_setup.on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>cC", vim.lsp.codelens.display, opts)
 	vim.keymap.set("n", "<leader>cR", vim.lsp.buf.rename, opts)
 
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				if vim.bo.filetype == 'typescriptreact' then
-					vim.cmd("Neoformat prettier")
-				else
-					vim.lsp.buf.format() 
-				end
-			end,
-		})
-	end
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+		callback = function()
+			vim.lsp.buf.format()
+		end
+	})
 end
 
 lsp_setup.capabilities = require('cmp_nvim_lsp').default_capabilities()
