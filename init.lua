@@ -10,3 +10,4 @@ require("config/nvim-treesitter-config")
 
 -- language-servers
 require("config/mason-lsp-config")
+require("config/nvim-dap-config")
