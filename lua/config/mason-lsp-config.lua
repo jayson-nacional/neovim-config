@@ -2,6 +2,7 @@ local lsp_setup = require("config/lsp_setup")
 local language_servers = {
 	"clangd",
 	"omnisharp",
+	"netcoredbg",
 	"ts_ls",
 	"jsonls",
 	"cssls",
