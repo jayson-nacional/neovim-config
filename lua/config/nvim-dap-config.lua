@@ -6,6 +6,8 @@ local dap_virtual_text = require("nvim-dap-virtual-text")
 dap_virtual_text.setup();
 
 mason_dap.setup({
+	ensure_installed = { "coreclr" },
+	automatic_installation = true,
 	handlers = {
 		function(config)
 			require("mason-nvim-dap").default_setup(config)

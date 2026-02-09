@@ -8,7 +8,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- nvim dap
 -- ========================================
-vim.keymap.set("n", "<leader>dt", function()
+vim.keymap.set("n", "<F9>", function()
 	require("dap").toggle_breakpoint()
 end, {
 	desc = "Toggle Breakpoint",
