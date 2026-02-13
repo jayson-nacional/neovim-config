@@ -89,3 +89,11 @@ end, {
 	nowait = true,
 	remap = false
 })
+
+vim.keymap.set("n", "<leader>??", function()
+	require("dap").eval()
+end, {
+	desc = "Inspect",
+	nowait = true,
+	remap = false
+})
