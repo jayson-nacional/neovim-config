@@ -7,7 +7,8 @@ local language_servers = {
 	"cssls",
 	"html",
 	"gopls",
-	"emmylua_ls"
+	"emmylua_ls",
+	"emmet_language_server"
 }
 
 for _, language_server in ipairs(language_servers) do
