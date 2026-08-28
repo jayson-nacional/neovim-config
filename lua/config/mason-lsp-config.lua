@@ -9,7 +9,6 @@ local language_servers = {
 	"gopls",
 	"emmylua_ls",
 	"emmet_language_server",
-	"phpactor"
 }
 
 for _, language_server in ipairs(language_servers) do

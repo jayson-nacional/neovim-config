@@ -1,7 +1,7 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
 	opts = {
-		ensure_installed = { "emmylua_ls", "omnisharp" }
+		ensure_installed = { "emmylua_ls" }
 	},
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
