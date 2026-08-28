@@ -21,25 +21,6 @@ lsp_setup.on_attach = function(_, bufnr)
 			vim.lsp.buf.format()
 		end
 	})
-
-	-- Omnisharp Extended support
-	if vim.bo.filetype == "cs" then
-		vim.keymap.set("n", "gd", function()
-			require("omnisharp_extended").lsp_definition()
-		end, opts)
-
-		vim.keymap.set("n", "gr", function()
-			require("omnisharp_extended").lsp_references()
-		end, opts)
-
-		vim.keymap.set("n", "gI", function()
-			require("omnisharp_extended").lsp_implementation()
-		end, opts)
-
-		vim.keymap.set("n", "gy", function()
-			require("omnisharp_extended").lsp_type_definition()
-		end, opts)
-	end
 end
 
 lsp_setup.capabilities = require('cmp_nvim_lsp').default_capabilities()
